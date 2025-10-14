@@ -5,7 +5,7 @@ export default function Brackets() {
       <div className="flex justify-start items-stretch gap-20 min-h-screen">
         {/* Round of 16 */}
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Round of 16</h2>
+          <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
@@ -61,7 +61,7 @@ export default function Brackets() {
 
         {/* Quarter finals */}
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Quarter finals</h2>
+          <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
@@ -91,7 +91,7 @@ export default function Brackets() {
 
         {/* Semi finals */}
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Semi finals</h2>
+          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
@@ -113,7 +113,7 @@ export default function Brackets() {
 
       <div className="flex justify-start items-stretch gap-20 min-h-screen">
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Final</h2>
+          <h2 className="text-lg font-bold text-center text-white">Final</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
@@ -134,7 +134,7 @@ export default function Brackets() {
       <div className="flex flex-row-reverse justify-end items-stretch gap-20 min-h-screen">
         {/* Round of 16 */}
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Round of 16</h2>
+          <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
@@ -190,7 +190,7 @@ export default function Brackets() {
 
         {/* Quarter finals */}
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Quarter finals</h2>
+          <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
@@ -220,7 +220,7 @@ export default function Brackets() {
 
         {/* Semi finals */}
         <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center">Semi finals</h2>
+          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
           <div className="p-3 border rounded bg-gray-100 flex justify-center gap-4 w-32">
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">

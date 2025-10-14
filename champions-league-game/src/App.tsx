@@ -1,5 +1,4 @@
 import './App.css'
-import react from 'react'
 import Brackets from './Brackets'
 
 function App() {
