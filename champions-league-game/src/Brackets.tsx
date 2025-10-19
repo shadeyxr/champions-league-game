@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { TeamCard } from './TeamCard.tsx';
 
 export default function Brackets() {
   const teams = [
@@ -121,32 +122,14 @@ export default function Brackets() {
             <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
             {pairsLeft.map(([team1, team2], index) => (
               <div
-                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                className="p-3 border border-black rounded-lg shadow-lg bg-gray-100 flex justify-center gap-4 w-32 h-16"
                 key={`${team1}-${team2}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                    onClick={() => SelectWinnerQF('left', index, team1)}
-                  >
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team1} onClick={() => { SelectWinnerQF('left', index, team1) }} />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                    onClick={() => SelectWinnerQF('left', index, team2)}
-                  >
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team2} onClick={() => { SelectWinnerQF('left', index, team2) }} />
                 </div>
               </div>
             ))}
@@ -161,28 +144,10 @@ export default function Brackets() {
                 key={`QF-left-${index}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                    onClick={() => SelectWinnerSemi('left', index, team1)}
-                  >
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team1} onClick={() => { SelectWinnerSemi('left', index, team1) }} />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                    onClick={() => SelectWinnerSemi('left', index, team2)}
-                  >
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team2} onClick={() => { SelectWinnerSemi('left', index, team2) }} />
                 </div>
               </div>
             ))}
@@ -197,28 +162,10 @@ export default function Brackets() {
                 key={`SF-left-${index}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                    onClick={() => SelectWinnerFinal('left', team1)}
-                  >
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team1} onClick={() => { SelectWinnerFinal('left', team1) }} />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                    onClick={() => SelectWinnerFinal('left', team2)}
-                  >
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team2} onClick={() => { SelectWinnerFinal('left', team2) }} />
                 </div>
               </div>
             ))}
@@ -235,22 +182,10 @@ export default function Brackets() {
                 key={`Final-${index}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team1} onClick={() => { }} />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  <TeamCard team={team2} onClick={() => { }} />
                 </div>
               </div>
             ))}
@@ -268,28 +203,16 @@ export default function Brackets() {
                 key={`${team1}-${team2}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                  <TeamCard
+                    team={team1}
                     onClick={() => SelectWinnerQF('right', index, team1)}
-                  >
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                  <TeamCard
+                    team={team2}
                     onClick={() => SelectWinnerQF('right', index, team2)}
-                  >
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  />
                 </div>
               </div>
             ))}
@@ -304,28 +227,16 @@ export default function Brackets() {
                 key={`QF-right-${index}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                  <TeamCard
+                    team={team1}
                     onClick={() => SelectWinnerSemi('right', index, team1)}
-                  >
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                  <TeamCard
+                    team={team2}
                     onClick={() => SelectWinnerSemi('right', index, team2)}
-                  >
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  />
                 </div>
               </div>
             ))}
@@ -340,28 +251,16 @@ export default function Brackets() {
                 key={`SF-right-${index}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                  <TeamCard
+                    team={team1}
                     onClick={() => SelectWinnerFinal('right', team1)}
-                  >
-                    {team1 ? (
-                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <button
-                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                  <TeamCard
+                    team={team2}
                     onClick={() => SelectWinnerFinal('right', team2)}
-                  >
-                    {team2 ? (
-                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                    ) : (
-                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                    )}
-                  </button>
+                  />
                 </div>
               </div>
             ))}
