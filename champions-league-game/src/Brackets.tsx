@@ -24,6 +24,8 @@ export default function Brackets() {
   const [pairsRight, setPairsRight] = useState<[string, string][]>([]);
   const [QFTeamsLeft, setQFTeamsLeft] = useState<[string, string][]>([['', ''], ['', '']]);
   const [QFTeamsRight, setQFTeamsRight] = useState<[string, string][]>([['', ''], ['', '']]);
+  const [SFTeamsLeft, setSFTeamsLeft] = useState<[string, string][]>([['', '']]);
+  const [SFTeamsRight, setSFTeamsRight] = useState<[string, string][]>([['', '']]);
 
   useEffect(() => {
     const shuffled = [...teams].sort(() => 0.5 - Math.random());
@@ -40,6 +42,7 @@ export default function Brackets() {
     setPairsRight(right)
 
   }, [])
+
 
   function SelectWinnerQF(side: string, index: number, team: string) {
     if (side === 'left') {
@@ -86,6 +89,25 @@ export default function Brackets() {
     }
   }
 
+  function SelectWinnerSemi(side: string, index:number, team: string){
+    if (side === 'left'){
+      if (index === 0){
+        setSFTeamsLeft([[team,SFTeamsLeft[0][1]]])
+      }
+      else if (index === 1){
+        setSFTeamsLeft([[SFTeamsLeft[0][0],team]])
+      }
+    }
+    else if (side === 'right'){
+      if (index === 0){
+        setSFTeamsRight([[team,SFTeamsRight[0][1]]])
+      }
+      else if (index === 1){
+        setSFTeamsRight([[SFTeamsRight[0][0],team]])
+      }
+    }
+  }
+
 
   return (
     <div className="flex justify-center items-stretch gap-50 ">
@@ -113,7 +135,7 @@ export default function Brackets() {
                     onClick={() => {
                       SelectWinnerQF('left', index, team2)
                     }}>
-                    <img src={`${team2}.png`} className="w-8 h-8 mt-1 object-contain" />
+                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
                   </button>
                 </div>
               </div>
@@ -126,9 +148,38 @@ export default function Brackets() {
           <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
 
           {QFTeamsLeft.map(([team1, team2]: [string, string],index) => {
-            console.log([team1,team2])
             return (
               <div className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16" key={`QF-left-${index}`}>
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => {
+                      SelectWinnerSemi('left',index,team1)
+                    }}>
+                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => {
+                      SelectWinnerSemi('left',index,team2)
+                    }}>
+                    <img src={`${team2}.png`} className="w-8 h-8  object-contain" />
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Semi finals */}
+        <div className="flex flex-col gap-8 justify-center">
+          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
+
+          {SFTeamsLeft.map(([team1, team2], index)=>{
+            return (
+              <div className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16" key={`SF-left-${index}`}>
                 <div className="flex items-center" id={team1}>
                   <button
                     className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
@@ -144,29 +195,12 @@ export default function Brackets() {
                     onClick={() => {
 
                     }}>
-                    <img src={`${team2}.png`} className="w-8 h-8 mt-1 object-contain" />
+                    <img src={`${team2}.png`} className="w-8 h-8  object-contain" />
                   </button>
                 </div>
               </div>
             )
-          })}
-        </div>
-
-        {/* Semi finals */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
-          <div className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16">
-            <div className="flex items-center">
-              <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                <img src="./mancity-badge.png" className="w-8 h-8 object-contain" alt="Manchester City Badge" />
-              </button>
-            </div>
-            <div className="flex items-center">
-              <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                <img src="./barcelona-badge.png" className="w-8 h-8 mt-1 object-contain" alt="Barcelona Badge" />
-              </button>
-            </div>
-          </div>
+          })} 
         </div>
       </div>
 
@@ -183,7 +217,7 @@ export default function Brackets() {
             </div>
             <div className="flex items-center">
               <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                <img src="./barcelona-badge.png" className="w-8 h-8 mt-1 object-contain" alt="Barcelona Badge" />
+                <img src="./barcelona-badge.png" className="w-8 h-8  object-contain" alt="Barcelona Badge" />
               </button>
             </div>
           </div>
@@ -214,7 +248,7 @@ export default function Brackets() {
                     onClick={() => {
                       SelectWinnerQF('right', index, team2)
                     }}>
-                    <img src={`${team2}.png`} className="w-8 h-8 mt-1 object-contain" alt="Barcelona Badge" />
+                    <img src={`${team2}.png`} className="w-8 h-8  object-contain" alt="Barcelona Badge" />
                   </button>
                 </div>
               </div>
@@ -226,9 +260,37 @@ export default function Brackets() {
         <div className="flex flex-col gap-8 justify-center">
           <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
           {QFTeamsRight.map(([team1, team2]: [string, string], index) => {
-            console.log([team1,team2])
             return (
               <div className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16" key={`QF-right-${index}`}>
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => {
+                      SelectWinnerSemi('right',index,team1)
+                    }}>
+                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => {
+                      SelectWinnerSemi('right',index,team2)
+                    }}>
+                    <img src={`${team2}.png`} className="w-8 h-8  object-contain" />
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Semi finals */}
+        <div className="flex flex-col gap-8 justify-center">
+          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
+          {SFTeamsRight.map(([team1, team2], index)=>{
+            return (
+              <div className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16" key={`SF-right-${index}`}>
                 <div className="flex items-center" id={team1}>
                   <button
                     className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
@@ -244,29 +306,12 @@ export default function Brackets() {
                     onClick={() => {
 
                     }}>
-                    <img src={`${team2}.png`} className="w-8 h-8 mt-1 object-contain" />
+                    <img src={`${team2}.png`} className="w-8 h-8  object-contain" />
                   </button>
                 </div>
               </div>
             )
-          })}
-        </div>
-
-        {/* Semi finals */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
-          <div className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16">
-            <div className="flex items-center">
-              <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                <img src="./mancity-badge.png" className="w-8 h-8 object-contain" alt="Manchester City Badge" />
-              </button>
-            </div>
-            <div className="flex items-center">
-              <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                <img src="./barcelona-badge.png" className="w-8 h-8 mt-1 object-contain" alt="Barcelona Badge" />
-              </button>
-            </div>
-          </div>
+          })} 
         </div>
       </div>
     </div>
