@@ -1,4 +1,9 @@
-export function TeamCard({ team, onClick } ) {
+interface TeamCardProps {
+  team:string;
+  onClick: ()=>void;
+}
+
+export function TeamCard({ team, onClick } : TeamCardProps ) {
   return (
     <button
       className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
