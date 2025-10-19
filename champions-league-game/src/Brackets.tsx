@@ -107,258 +107,265 @@ export default function Brackets() {
   }
 
   return (
-    <div className="flex justify-center items-stretch gap-50 ">
-      {/* Left side */}
-      <div className="flex justify-start items-stretch gap-20 min-h-screen">
-        {/* Round of 16 */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
-          {pairsLeft.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`${team1}-${team2}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerQF('left', index, team1)}
-                >
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-              <div className="flex items-center" id={team2}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerQF('left', index, team2)}
-                >
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Quarter finals */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
-          {QFTeamsLeft.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`QF-left-${index}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerSemi('left', index, team1)}
-                >
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-              <div className="flex items-center" id={team2}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerSemi('left', index, team2)}
-                >
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Semi finals */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
-          {SFTeamsLeft.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`SF-left-${index}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerFinal('left', team1)}
-                >
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-              <div className="flex items-center" id={team2}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerFinal('left', team2)}
-                >
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
+    <div>
+      <div className='flex justify-center'>
+        <div className='h-0'>
+          <img className='w-30 mt-8 filter invert' src="main-logo.png" />
         </div>
       </div>
+      <div className="flex justify-center items-stretch gap-50 ">
+        {/* Left side */}
+        <div className="flex justify-start items-stretch gap-20 min-h-screen">
+          {/* Round of 16 */}
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
+            {pairsLeft.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`${team1}-${team2}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerQF('left', index, team1)}
+                  >
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerQF('left', index, team2)}
+                  >
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
 
-      {/* Middle (Final) */}
-      <div className="flex justify-start items-stretch gap-20 min-h-screen">
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Final</h2>
-          {FinalTeams.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`Final-${index}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
+          {/* Quarter finals */}
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
+            {QFTeamsLeft.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`QF-left-${index}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerSemi('left', index, team1)}
+                  >
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerSemi('left', index, team2)}
+                  >
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center" id={team2}>
-                <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
+            ))}
+          </div>
+
+          {/* Semi finals */}
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
+            {SFTeamsLeft.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`SF-left-${index}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerFinal('left', team1)}
+                  >
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerFinal('left', team2)}
+                  >
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Right side */}
-      <div className="flex flex-row-reverse justify-end items-stretch gap-20 min-h-screen">
-        {/* Round of 16 */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
-          {pairsRight.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`${team1}-${team2}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerQF('right', index, team1)}
-                >
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
+        {/* Middle (Final) */}
+        <div className="flex justify-start items-stretch gap-20 min-h-screen">
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Final</h2>
+            {FinalTeams.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`Final-${index}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded">
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center" id={team2}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerQF('right', index, team2)}
-                >
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Quarter finals */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
-          {QFTeamsRight.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`QF-right-${index}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerSemi('right', index, team1)}
-                >
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
+        {/* Right side */}
+        <div className="flex flex-row-reverse justify-end items-stretch gap-20 min-h-screen">
+          {/* Round of 16 */}
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Round of 16</h2>
+            {pairsRight.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`${team1}-${team2}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerQF('right', index, team1)}
+                  >
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerQF('right', index, team2)}
+                  >
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center" id={team2}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerSemi('right', index, team2)}
-                >
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Semi finals */}
-        <div className="flex flex-col gap-8 justify-center">
-          <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
-          {SFTeamsRight.map(([team1, team2], index) => (
-            <div
-              className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
-              key={`SF-right-${index}`}
-            >
-              <div className="flex items-center" id={team1}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerFinal('right', team1)}
-                >
-                  {team1 ? (
-                    <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
+          {/* Quarter finals */}
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Quarter finals</h2>
+            {QFTeamsRight.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`QF-right-${index}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerSemi('right', index, team1)}
+                  >
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerSemi('right', index, team2)}
+                  >
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center" id={team2}>
-                <button
-                  className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
-                  onClick={() => SelectWinnerFinal('right', team2)}
-                >
-                  {team2 ? (
-                    <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
-                  ) : (
-                    <img src={`website-image.png`} className="w-8 h-8 object-contain" />
-                  )}
-                </button>
+            ))}
+          </div>
+
+          {/* Semi finals */}
+          <div className="flex flex-col gap-8 justify-center">
+            <h2 className="text-lg font-bold text-center text-white">Semi finals</h2>
+            {SFTeamsRight.map(([team1, team2], index) => (
+              <div
+                className="p-3 border border-black rounded bg-gray-100 flex justify-center gap-4 w-32 h-16"
+                key={`SF-right-${index}`}
+              >
+                <div className="flex items-center" id={team1}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerFinal('right', team1)}
+                  >
+                    {team1 ? (
+                      <img src={`${team1}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center" id={team2}>
+                  <button
+                    className="focus:outline-none hover:scale-110 hover:bg-gray-200 transition-transform duration-200 rounded"
+                    onClick={() => SelectWinnerFinal('right', team2)}
+                  >
+                    {team2 ? (
+                      <img src={`${team2}.png`} className="w-8 h-8 object-contain" />
+                    ) : (
+                      <img src={`website-image.png`} className="w-8 h-8 object-contain" />
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
