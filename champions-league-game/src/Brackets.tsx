@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { TeamCard } from './TeamCard.tsx';
+import { DisplayWinner } from './DisplayWinner.tsx';
 
 export default function Brackets() {
   const teams = [
@@ -28,6 +29,7 @@ export default function Brackets() {
   const [SFTeamsLeft, setSFTeamsLeft] = useState<[string, string][]>([['', '']]);
   const [SFTeamsRight, setSFTeamsRight] = useState<[string, string][]>([['', '']]);
   const [FinalTeams, setFinalTeams] = useState<[string, string][]>([['', '']]);
+  const [Winner, setWinner] = useState<string>("")
 
   useEffect(() => {
     const shuffled = [...teams].sort(() => 0.5 - Math.random());
@@ -107,6 +109,10 @@ export default function Brackets() {
     else if (side === 'right') setFinalTeams([[FinalTeams[0][0], team]]);
   }
 
+  function SelectWinner(team:string){
+    setWinner(team)
+  }
+
   return (
     <div>
       <div className='flex justify-center'>
@@ -114,6 +120,9 @@ export default function Brackets() {
           <img className='w-30 mt-8 filter invert' src="main-logo.png" />
         </div>
       </div>
+      
+      <DisplayWinner Winner={Winner} />
+      
       <div className="flex justify-center items-stretch gap-50 ">
         {/* Left side */}
         <div className="flex justify-start items-stretch gap-20 min-h-screen">
@@ -182,10 +191,10 @@ export default function Brackets() {
                 key={`Final-${index}`}
               >
                 <div className="flex items-center" id={team1}>
-                  <TeamCard team={team1} onClick={() => { }} />
+                  <TeamCard team={team1} onClick={() => { SelectWinner(team1)}} />
                 </div>
                 <div className="flex items-center" id={team2}>
-                  <TeamCard team={team2} onClick={() => { }} />
+                  <TeamCard team={team2} onClick={() => { SelectWinner(team2) }} />
                 </div>
               </div>
             ))}
